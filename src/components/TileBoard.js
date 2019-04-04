@@ -2,26 +2,11 @@ import React from "react";
 import "./TileBoard.css";
 
 const TileBoard = props => {
-	return (
-		<div className="tile-board">
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-			<div />
-		</div>
-	);
+	const getDivs = () =>
+		Array(16)
+			.fill(null)
+			.map((tile, index) => <div key={index} />);
+	return <div className="tile-board">{getDivs()}</div>;
 };
 
 export default TileBoard;
