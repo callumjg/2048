@@ -1,0 +1,46 @@
+.score-card {
+	background: #b7aca1;
+	width: 150px;
+	height: 60px;
+	border-radius: 10px;
+	letter-spacing: 1pt;
+	color: #eae6e1;
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 10pt;
+	margin: 5px;
+}
+
+.score-card div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1 100%;
+}
+
+.points {
+	color: white;
+	font-size: 20pt;
+}
+
+@media screen and (max-width: 500px) {
+	.score-card {
+		width: 130px;
+		height: 30px;
+		border-radius: 10px;
+		letter-spacing: 1pt;
+		font-size: 10pt;
+		margin: 3px;
+	}
+
+	.score-card div {
+		flex: 1 auto;
+	}
+
+	.points {
+		font-size: 15pt;
+	}
+}

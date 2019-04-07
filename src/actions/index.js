@@ -1,3 +1,7 @@
+// used to assign unique keys to tiles
+let tileKeyCounter = 0;
+
+// helper function to get tile map
 const getCurrentTileMap = tiles => {
 	const tileMap = [
 		[null, null, null, null],
@@ -10,18 +14,16 @@ const getCurrentTileMap = tiles => {
 	return tileMap;
 };
 
-let tileKeyCounter = 0;
-
+// move tiles action creator
 export const moveTiles = direction => (dispatch, getState) => {
 	const tiles = getState().tiles,
-		currentTileMap = getCurrentTileMap(tiles);
-
-	const isMerged = [
-		[false, false, false, false],
-		[false, false, false, false],
-		[false, false, false, false],
-		[false, false, false, false]
-	];
+		currentTileMap = getCurrentTileMap(tiles),
+		isMerged = [
+			[false, false, false, false],
+			[false, false, false, false],
+			[false, false, false, false],
+			[false, false, false, false]
+		];
 
 	let yBump = 0,
 		xBump = 0,
@@ -33,21 +35,21 @@ export const moveTiles = direction => (dispatch, getState) => {
 	switch (direction) {
 		case "down":
 			yBump++;
-			sortFunction = (a, b) => b.y - a.y; //sortDown
+			sortFunction = (a, b) => b.y - a.y;
 			axis = "y";
 			reverse = false;
 
 			break;
 		case "up":
 			yBump--;
-			sortFunction = (a, b) => a.y - b.y; //sortUp
+			sortFunction = (a, b) => a.y - b.y;
 			axis = "y";
 			reverse = true;
 
 			break;
 		case "left":
 			xBump--;
-			sortFunction = (a, b) => a.x - b.x; //sortLeft
+			sortFunction = (a, b) => a.x - b.x;
 			axis = "x";
 			reverse = true;
 
@@ -104,9 +106,11 @@ export const moveTiles = direction => (dispatch, getState) => {
 				isMerged[nextY][nextX] = true;
 				hasMoved = true;
 				currentTileMap[nextY][nextX] += value;
+				dispatch({ type: "ADD_POINTS", payload: value * 2 });
 				return { ...tile, y: nextY, x: nextX, value: value * 2 };
 			}
 		}
+		return tile;
 	});
 
 	const removedDuplicates = newPositions.filter(tile => {
@@ -118,16 +122,10 @@ export const moveTiles = direction => (dispatch, getState) => {
 	const reOrderedTiles = removedDuplicates.sort((a, b) => a.key - b.key);
 	dispatch({ type: "MOVE_TILES", payload: reOrderedTiles });
 	if (hasMoved) dispatch(addRandomTile());
-	// dispact action
+	if (isGameOver(getState().tiles)) dispatch(gameOver());
 };
 
-export const addTile = tile => {
-	return {
-		type: "ADD_TILE",
-		payload: tile
-	};
-};
-
+// add random tile action creator
 export const addRandomTile = (numOfTiles = 1) => (dispatch, getState) => {
 	for (let i = 0; i < numOfTiles; i++) {
 		const tiles = getState().tiles,
@@ -152,4 +150,43 @@ export const addRandomTile = (numOfTiles = 1) => (dispatch, getState) => {
 
 		if (highestRoll) dispatch({ type: "ADD_TILE", payload: newTile });
 	}
+};
+
+const isGameOver = tiles => {
+	if (tiles.length < 16) return false;
+	const tileMap = getCurrentTileMap(tiles);
+	for (let row = 0; row < tileMap.length; row++) {
+		for (let col = 0; col < tileMap[row].length; col++) {
+			const thisTile = tileMap[row][col];
+			if (
+				thisTile === tileMap[row][col + 1] ||
+				thisTile === tileMap[row][col - 1]
+			)
+				return false;
+			if (
+				(tileMap[row + 1] && thisTile === tileMap[row + 1][col]) ||
+				(tileMap[row - 1] && thisTile === tileMap[row - 1][col])
+			)
+				return false;
+		}
+	}
+
+	return true;
+};
+
+export const gameOver = () => {
+	return {
+		type: "GAME_OVER"
+	};
+};
+
+export const newGame = () => (dispatch, getState) => {
+	dispatch({
+		type: "NEW_GAME"
+	});
+	dispatch(addRandomTile(2));
+};
+
+export const addGameOverTiles = () => {
+	return { type: "ADD_GAME_OVER_TILES" };
 };

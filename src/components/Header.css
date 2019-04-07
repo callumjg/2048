@@ -1,0 +1,27 @@
+.header {
+	display: flex;
+	position: relative;
+	flex: 1 100%;
+	flex-flow: row wrap;
+
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	font-size: 60pt;
+	letter-spacing: 5pt;
+}
+
+@media screen and (max-width: 500px) {
+	.header {
+		flex-flow: column wrap;
+		height: 80px;
+	}
+	.title {
+		font-size: 60pt;
+		line-height: 100%;
+		letter-spacing: 0pt;
+		margin: 0;
+	}
+}

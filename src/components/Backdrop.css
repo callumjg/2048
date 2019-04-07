@@ -1,0 +1,23 @@
+.backdrop {
+	position: absolute;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: space-between;
+}
+
+.backdrop div {
+	width: 105px;
+	height: 105px;
+	background: #ccc2b9;
+	border-radius: 5%;
+}
+
+@media screen and (max-width: 500px) {
+	.backdrop div {
+		width: 62px;
+		height: 62px;
+	}
+}

@@ -1,19 +1,30 @@
 .tile-board {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	/*background: blue;*/
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-content: space-between;
-	z-index: -1;
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background: #bbada0;
+	border-radius: 2%;
 }
 
-.tile-board div {
-	/*margin: 8px;*/
-	width: 105px;
-	height: 105px;
-	background: #ccc2b9;
-	border-radius: 5%;
+.tiles-container {
+	position: relative;
+	display: flex;
+	top: 16px;
+	left: 16px;
+	width: 468px;
+	height: 468px;
+}
+
+@media screen and (max-width: 500px) {
+	.tile-board {
+		width: 300px;
+		height: 300px;
+	}
+
+	.tiles-container {
+		top: 10px;
+		left: 10px;
+		width: 279px;
+		height: 279px;
+	}
 }

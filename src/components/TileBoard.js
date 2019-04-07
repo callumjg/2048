@@ -1,12 +1,26 @@
 import React from "react";
+import { connect } from "react-redux";
+import Backdrop from "./Backdrop";
+import Tiles from "./Tiles";
+import GameOverCard from "./GameOverCard";
 import "./TileBoard.css";
 
 const TileBoard = props => {
-	const getDivs = () =>
-		Array(16)
-			.fill(null)
-			.map((tile, index) => <div key={index} />);
-	return <div className="tile-board">{getDivs()}</div>;
+	return (
+		<div className="tile-board">
+			<div className="tiles-container">
+				<Backdrop />
+				<Tiles />
+				<GameOverCard />
+			</div>
+		</div>
+	);
 };
 
-export default TileBoard;
+const mapStateToProps = state => {
+	return {
+		tiles: state.tiles
+	};
+};
+
+export default connect(mapStateToProps)(TileBoard);
