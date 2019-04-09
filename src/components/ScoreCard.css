@@ -1,17 +1,17 @@
 .score-card {
-	background: #b7aca1;
-	width: 150px;
-	height: 60px;
-	border-radius: 10px;
-	letter-spacing: 1pt;
-	color: #eae6e1;
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;
 	justify-content: center;
 	text-align: center;
-	font-size: 10pt;
 	margin: 5px;
+	width: 150px;
+	height: 60px;
+	font-size: 10pt;
+	letter-spacing: 1pt;
+	border-radius: 10px;
+	background: #b7aca1;
+	color: #eae6e1;
 }
 
 .score-card div {

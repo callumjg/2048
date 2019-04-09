@@ -1,7 +1,7 @@
-// used to assign unique keys to tiles
+// used to assign a unique key property to new tiles
 let tileKeyCounter = 0;
 
-// helper function to get tile map
+// helper function to get a tile map representing the current tile board
 const getCurrentTileMap = tiles => {
 	const tileMap = [
 		[null, null, null, null],
@@ -14,7 +14,6 @@ const getCurrentTileMap = tiles => {
 	return tileMap;
 };
 
-// move tiles action creator
 export const moveTiles = direction => (dispatch, getState) => {
 	const tiles = getState().tiles,
 		currentTileMap = getCurrentTileMap(tiles),
@@ -125,7 +124,6 @@ export const moveTiles = direction => (dispatch, getState) => {
 	if (isGameOver(getState().tiles)) dispatch(gameOver());
 };
 
-// add random tile action creator
 export const addRandomTile = (numOfTiles = 1) => (dispatch, getState) => {
 	for (let i = 0; i < numOfTiles; i++) {
 		const tiles = getState().tiles,
@@ -152,6 +150,7 @@ export const addRandomTile = (numOfTiles = 1) => (dispatch, getState) => {
 	}
 };
 
+// helper function to ascertain if any further moves are possible
 const isGameOver = tiles => {
 	if (tiles.length < 16) return false;
 	const tileMap = getCurrentTileMap(tiles);
@@ -185,8 +184,4 @@ export const newGame = () => (dispatch, getState) => {
 		type: "NEW_GAME"
 	});
 	dispatch(addRandomTile(2));
-};
-
-export const addGameOverTiles = () => {
-	return { type: "ADD_GAME_OVER_TILES" };
 };

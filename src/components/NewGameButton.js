@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { newGame } from "../actions";
-import "./ButtonCard.css";
+import "./NewGameButton.css";
 
-const ButtonCard = props => {
+const NewGameButton = props => {
 	return (
-		<div className="button-card" onClick={props.newGame}>
+		<div className="new-game-button" onClick={props.newGame}>
 			<div>New game</div>
 			<div>
 				<i className="play icon" />
@@ -14,11 +14,7 @@ const ButtonCard = props => {
 	);
 };
 
-const mapStateToProps = state => {
-	return {};
-};
-
 export default connect(
-	mapStateToProps,
+	null,
 	{ newGame }
-)(ButtonCard);
+)(NewGameButton);

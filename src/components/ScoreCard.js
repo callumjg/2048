@@ -1,8 +1,7 @@
 import React from "react";
 
 import "./ScoreCard.css";
-const ScoreCard = props => {
-	const { title, points } = props;
+const ScoreCard = ({ title, points }) => {
 	return (
 		<div className="score-card">
 			<div>{title}</div>

@@ -1,18 +1,18 @@
 html body {
-	color: #776e65;
-	height: 100%;
-	font-family: "Passion One", cursive;
-	background: #f9f4ee;
 	display: flex;
-	align-items: center;
+	height: 100%;
 	justify-content: center;
+	align-items: center;
+	color: #776e65;
+	background: #f9f4ee;
+	font-family: "Passion One", cursive;
 }
 
 .app-container {
 	position: relative;
 	display: flex;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 	flex-flow: row wrap;
 	flex: 1 100%;
 	height: 100%;

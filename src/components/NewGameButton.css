@@ -1,30 +1,30 @@
-.button-card {
+.new-game-button {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: center;
+	justify-content: center;
 	width: 150px;
 	height: 100px;
 	background: #f2b179;
 	color: #f9f6f2;
 	border-radius: 20px;
-	display: flex;
-	flex-flow: row wrap;
-	align-content: center;
-	justify-content: center;
 	font-size: 16pt;
 	letter-spacing: 1.5pt;
 }
 
-.button-card:hover {
+.new-game-button:hover {
 	background: #776e65;
 }
 
-.button-card div {
+.new-game-button div {
 	display: flex;
+	justify-content: center;
 	flex: 1 100%;
 	margin: 5px;
-	justify-content: center;
 }
 
 @media screen and (max-width: 500px) {
-	.button-card {
+	.new-game-button {
 		width: 110px;
 		height: 70px;
 		border-radius: 7px;

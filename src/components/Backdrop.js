@@ -2,11 +2,12 @@ import React from "react";
 import "./Backdrop.css";
 
 const Backdrop = props => {
-	const getDivs = () =>
+	const getBackdropTiles = () =>
 		Array(16)
 			.fill(null)
 			.map((tile, index) => <div key={index} />);
-	return <div className="backdrop">{getDivs()}</div>;
+
+	return <div className="backdrop">{getBackdropTiles()}</div>;
 };
 
 export default Backdrop;

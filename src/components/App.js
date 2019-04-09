@@ -3,39 +3,31 @@ import { connect } from "react-redux";
 import TileBoard from "./TileBoard";
 import Header from "./Header";
 import { handleSwipe } from "../utilities";
-import { moveTiles, addRandomTile, addGameOverTiles } from "../actions";
-
+import { moveTiles, addRandomTile } from "../actions";
 import "./App.css";
 
 class App extends React.Component {
 	componentDidMount() {
-		document.addEventListener("keydown", this.onInput.bind(this));
-		handleSwipe(document, this.props.moveTiles);
+		const { moveTiles, addRandomTile } = this.props;
+
+		document.addEventListener("keydown", this.onKeyPress.bind(this));
+		handleSwipe(document, moveTiles);
 
 		this.keyRouting = {
-			ArrowDown: () => this.props.moveTiles("down"),
-			ArrowUp: () => this.props.moveTiles("up"),
-			ArrowLeft: () => this.props.moveTiles("left"),
-			ArrowRight: () => this.props.moveTiles("right")
+			ArrowDown: () => moveTiles("down"),
+			ArrowUp: () => moveTiles("up"),
+			ArrowLeft: () => moveTiles("left"),
+			ArrowRight: () => moveTiles("right")
 		};
 
-		this.props.addRandomTile(2);
-		// this.props.addGameOverTiles();
+		addRandomTile(2);
 	}
 
-	onInput(e) {
-		let key = "";
-		if (e.type === "keydown" && e.key !== "Shift") {
-			key = e.key;
-		}
-		try {
-			if (this.keyRouting[key]) {
-				e.preventDefault();
-				this.keyRouting[key]();
-			}
-		} catch (err) {
-			console.log(err);
-			this.setState({ msg: err.message });
+	onKeyPress(e) {
+		const key = e.type === "keydown" ? e.key : "";
+		if (this.keyRouting[key]) {
+			e.preventDefault();
+			this.keyRouting[key]();
 		}
 	}
 
@@ -49,13 +41,11 @@ class App extends React.Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		tiles: state.tiles
-	};
+const mapStateToProps = ({ tiles }) => {
+	return { tiles };
 };
 
 export default connect(
 	mapStateToProps,
-	{ moveTiles, addRandomTile, addGameOverTiles }
+	{ moveTiles, addRandomTile }
 )(App);

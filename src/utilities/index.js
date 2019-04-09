@@ -3,16 +3,13 @@ export const handleSwipe = (element, callback) => {
         maxPerpendicularDist = 30,
         minTime = 170;
 
-    let startX, startY, startTime, direction;
+    let startX, startY, startTime;
 
     element.addEventListener("touchstart", e => {
-        e.preventDefault();
-
         const touchObj = e.changedTouches[0];
         startX = touchObj.pageX;
         startY = touchObj.pageY;
         startTime = e.timeStamp;
-        direction = null;
     });
 
     element.addEventListener("touchmove", e => {
@@ -20,7 +17,6 @@ export const handleSwipe = (element, callback) => {
     });
 
     element.addEventListener("touchend", e => {
-        e.preventDefault();
         const touchObj = e.changedTouches[0],
             distX = touchObj.pageX - startX,
             distY = touchObj.pageY - startY,
@@ -28,6 +24,7 @@ export const handleSwipe = (element, callback) => {
             xPlane = Math.abs(distX) > Math.abs(distY) ? true : false;
 
         if (elapsedTime < minTime) return;
+
         if (
             xPlane &&
             Math.abs(distX) > minDist &&

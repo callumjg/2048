@@ -1,9 +1,8 @@
 .header {
-	display: flex;
 	position: relative;
-	flex: 1 100%;
+	display: flex;
 	flex-flow: row wrap;
-
+	flex: 1 100%;
 	align-items: center;
 	justify-content: center;
 }

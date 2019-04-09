@@ -17,10 +17,8 @@ const TileBoard = props => {
 	);
 };
 
-const mapStateToProps = state => {
-	return {
-		tiles: state.tiles
-	};
+const mapStateToProps = ({ tiles }) => {
+	return { tiles };
 };
 
 export default connect(mapStateToProps)(TileBoard);

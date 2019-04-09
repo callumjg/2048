@@ -14,10 +14,8 @@ const Header = props => {
 	);
 };
 
-const mapStateToProps = state => {
-	return {
-		score: state.score
-	};
+const mapStateToProps = ({ score }) => {
+	return { score };
 };
 
 export default connect(mapStateToProps)(Header);
