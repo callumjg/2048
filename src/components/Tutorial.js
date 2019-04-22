@@ -20,15 +20,15 @@ const Tutorial = props => {
 						to combine tiles of the same value.
 					</div>
 					<div className="item">
-						2. Win by getting to
+						2. Win by getting to{" "}
 						<span style={{ display: "inline-block" }}>
 							<div
 								className="tile tile-2048"
 								style={{
 									position: "relative",
-									width: "63px",
-									height: "63px",
-									fontSize: "20pt"
+									width: "45px",
+									height: "45px",
+									fontSize: "16pt"
 								}}>
 								<p>2048</p>
 							</div>

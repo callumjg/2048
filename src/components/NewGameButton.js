@@ -7,7 +7,9 @@ const NewGameButton = ({ newGame }) => {
 	return (
 		<div className="button-control" onClick={newGame}>
 			<div>
-				<i className="play small icon" />
+				<span>
+					<i className="play small icon" />
+				</span>
 				<p>New Game</p>
 			</div>
 		</div>

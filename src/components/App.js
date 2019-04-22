@@ -37,10 +37,12 @@ class App extends React.Component {
 	render() {
 		return (
 			<div id="app-container">
-				<Header />
-				<TileBoard />
-				<GameControls />
-				<Tutorial />
+				<div className="app">
+					<Header />
+					<TileBoard />
+					<GameControls />
+					<Tutorial />
+				</div>
 			</div>
 		);
 	}

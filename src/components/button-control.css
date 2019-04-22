@@ -14,9 +14,14 @@
 	padding: 5px;
 }
 
-.button-control:hover {
-	background: #776e65;
-	font-size: 18pt;
+.button-control span {
+	overflow: hidden;
+	width: 0px;
+	transition: width 100ms ease-in-out;
+}
+
+.button-control:hover span {
+	width: 15%;
 }
 
 .button-control div {
@@ -32,9 +37,5 @@
 		height: 25px;
 		font-size: 12pt;
 		letter-spacing: 2pt;
-	}
-
-	.button-control:hover {
-		font-size: 14pt;
 	}
 }

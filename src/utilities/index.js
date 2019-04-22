@@ -6,7 +6,6 @@ export const handleSwipe = (element, callback) => {
     let startX, startY, startTime;
 
     element.addEventListener("touchstart", e => {
-        e.preventDefault();
         const touchObj = e.changedTouches[0];
         startX = touchObj.pageX;
         startY = touchObj.pageY;
@@ -18,7 +17,6 @@ export const handleSwipe = (element, callback) => {
     });
 
     element.addEventListener("touchend", e => {
-        e.preventDefault();
         const touchObj = e.changedTouches[0],
             distX = touchObj.pageX - startX,
             distY = touchObj.pageY - startY,
