@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "body-scroll-lock": "^2.6.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-motion": "^0.5.2",

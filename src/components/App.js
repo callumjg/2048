@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { disableBodyScroll } from "body-scroll-lock";
 import TileBoard from "./TileBoard";
 import Header from "./Header";
 import { handleSwipe } from "../utilities";
@@ -9,9 +10,9 @@ import "./App.css";
 class App extends React.Component {
 	componentDidMount() {
 		const { moveTiles, addRandomTile } = this.props;
-
 		document.addEventListener("keydown", this.onKeyPress.bind(this));
 		handleSwipe(document, moveTiles);
+		disableBodyScroll(document.querySelector("#app-container"));
 
 		this.keyRouting = {
 			ArrowDown: () => moveTiles("down"),
@@ -33,7 +34,7 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="app-container">
+			<div id="app-container">
 				<Header />
 				<TileBoard />
 			</div>

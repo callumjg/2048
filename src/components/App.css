@@ -10,7 +10,7 @@ html body {
 	overflow: hidden;
 }
 
-.app-container {
+#app-container {
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -24,7 +24,7 @@ html body {
 }
 
 @media screen and (max-width: 500px) {
-	.app-container {
+	#app-container {
 		width: 300px;
 	}
 }
