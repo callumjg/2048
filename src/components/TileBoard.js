@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import Backdrop from "./Backdrop";
 import Tiles from "./Tiles";
 import GameOverCard from "./GameOverCard";
@@ -17,8 +16,4 @@ const TileBoard = props => {
 	);
 };
 
-const mapStateToProps = ({ tiles }) => {
-	return { tiles };
-};
-
-export default connect(mapStateToProps)(TileBoard);
+export default TileBoard;

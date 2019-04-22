@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import ScoreCard from "./ScoreCard";
 import "./Header.css";
 
-const Header = props => {
-	const { score } = props;
+const Header = ({ score }) => {
 	return (
 		<div className="header">
 			<div className="title">2048</div>

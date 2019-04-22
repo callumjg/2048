@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { newGame } from "../actions";
 import "./NewGameButton.css";
 
-const NewGameButton = props => {
+const NewGameButton = ({ newGame }) => {
 	return (
-		<div className="new-game-button" onClick={props.newGame}>
+		<div className="new-game-button" onClick={newGame}>
 			<div>New game</div>
 			<div>
 				<i className="play icon" />
