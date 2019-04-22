@@ -1,0 +1,42 @@
+.tutorial-container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(249, 244, 238, 0.95);
+	font-size: 20pt;
+	text-align: center;
+}
+.tutorial {
+	margin-top: 100px;
+}
+.item {
+	margin: 20px;
+}
+.close {
+	border-radius: 10px;
+}
+.close:hover {
+	font-size: 24pt;
+}
+@media screen and (max-width: 500px) {
+	.tutorial h1 {
+		font-size: 24pt;
+		margin: 48px;
+	}
+
+	.tutorial-container {
+		font-size: 16pt;
+	}
+	.tutorial {
+		margin-top: 80px;
+	}
+	.item {
+		margin: 10px;
+	}
+	.close {
+		border-radius: 10px;
+	}
+	.close:hover {
+		font-size: 18pt;
+	}
+}

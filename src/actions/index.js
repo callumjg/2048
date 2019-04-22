@@ -185,3 +185,15 @@ export const newGame = () => (dispatch, getState) => {
 	});
 	dispatch(addRandomTile(2));
 };
+
+export const openTutorial = () => {
+	return {
+		type: "OPEN_TUTORIAL"
+	};
+};
+
+export const closeTutorial = () => {
+	return {
+		type: "CLOSE_TUTORIAL"
+	};
+};

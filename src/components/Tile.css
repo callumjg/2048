@@ -16,6 +16,7 @@
 		color 140ms ease-in-out 150ms, font-size 100ms ease-in-out 150ms;
 
 	font-size: 40pt;
+	border-radius: 5%;
 }
 
 .tile div {

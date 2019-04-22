@@ -39,8 +39,20 @@ const gameOverReducer = (state = false, action) => {
 			return state;
 	}
 };
+
+const tutorialReducer = (state = true, action) => {
+	switch (action.type) {
+		case "OPEN_TUTORIAL":
+			return true;
+		case "CLOSE_TUTORIAL":
+			return false;
+		default:
+			return state;
+	}
+};
 export default combineReducers({
 	tiles: tilesReducer,
 	score: scoreReducer,
-	isGameOver: gameOverReducer
+	isGameOver: gameOverReducer,
+	isTutorialOpen: tutorialReducer
 });

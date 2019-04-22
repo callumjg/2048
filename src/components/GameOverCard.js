@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { TransitionMotion, spring } from "react-motion";
-import NewGameButton from "./NewGameButton";
 import "./GameOverCard.css";
 
 const GameOverCard = props => {
@@ -30,7 +29,6 @@ const GameOverCard = props => {
 							className="game-over-card"
 							style={{ ...config.style }}>
 							<h1>Game Over</h1>
-							<NewGameButton />
 						</div>
 					);
 				})}

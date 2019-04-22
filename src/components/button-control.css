@@ -1,34 +1,40 @@
-.new-game-button {
+.button-control {
 	display: flex;
 	flex-flow: row wrap;
 	align-content: center;
 	justify-content: center;
-	width: 150px;
-	height: 100px;
+	width: 100%;
+	margin: 5px;
+	height: 30px;
 	background: #f2b179;
 	color: #f9f6f2;
-	border-radius: 20px;
+	border-radius: 10px;
 	font-size: 16pt;
 	letter-spacing: 1.5pt;
+	padding: 5px;
 }
 
-.new-game-button:hover {
+.button-control:hover {
 	background: #776e65;
+	font-size: 18pt;
 }
 
-.new-game-button div {
+.button-control div {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	flex: 1 100%;
-	margin: 5px;
 }
 
 @media screen and (max-width: 500px) {
-	.new-game-button {
-		width: 110px;
-		height: 70px;
+	.button-control {
 		border-radius: 7px;
+		height: 25px;
 		font-size: 12pt;
 		letter-spacing: 2pt;
+	}
+
+	.button-control:hover {
+		font-size: 14pt;
 	}
 }
