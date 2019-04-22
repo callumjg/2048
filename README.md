@@ -7,6 +7,8 @@ This application showcases the following libraries:
 -   redux-thunk
 -   react-motion
 
+#### Try it out here: https://callumcancreate-react-2048.herokuapp.com
+
 ## Available Scripts
 
 In the project directory, you can run:
