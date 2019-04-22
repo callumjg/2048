@@ -1,7 +1,7 @@
 export const handleSwipe = (element, callback) => {
-    const minDist = 60,
+    const minDist = 20,
         maxPerpendicularDist = 30,
-        minTime = 170;
+        minTime = 10;
 
     let startX, startY, startTime;
 

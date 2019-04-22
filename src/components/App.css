@@ -6,6 +6,7 @@ html body {
 	color: #776e65;
 	background: #f9f4ee;
 	font-family: "Passion One", cursive;
+	touch-action: none;
 }
 
 .app-container {
