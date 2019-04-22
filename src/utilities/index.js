@@ -1,6 +1,6 @@
 export const handleSwipe = (element, callback) => {
-    const minDist = 20,
-        maxPerpendicularDist = 30,
+    const minDist = 10,
+        minConstraintRatio = 0.25,
         minTime = 10;
 
     let startX, startY, startTime;
@@ -23,21 +23,22 @@ export const handleSwipe = (element, callback) => {
             distX = touchObj.pageX - startX,
             distY = touchObj.pageY - startY,
             elapsedTime = e.timeStamp - startTime,
-            xPlane = Math.abs(distX) > Math.abs(distY) ? true : false;
+            xPlane = Math.abs(distX) > Math.abs(distY) ? true : false,
+            constraintRatio = Math.abs(1 - Math.abs(distX) / Math.abs(distY));
 
         if (elapsedTime < minTime) return;
 
         if (
             xPlane &&
             Math.abs(distX) > minDist &&
-            Math.abs(distY) < maxPerpendicularDist
+            constraintRatio > minConstraintRatio
         )
             distX > 0 ? callback("right") : callback("left");
 
         if (
             !xPlane &&
             Math.abs(distY) > minDist &&
-            Math.abs(distX) < maxPerpendicularDist
+            constraintRatio > minConstraintRatio
         )
             distY > 0 ? callback("down") : callback("up");
     });
