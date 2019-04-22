@@ -40,7 +40,7 @@ const gameOverReducer = (state = false, action) => {
 	}
 };
 
-const tutorialReducer = (state = true, action) => {
+const tutorialReducer = (state = false, action) => {
 	switch (action.type) {
 		case "OPEN_TUTORIAL":
 			return true;
