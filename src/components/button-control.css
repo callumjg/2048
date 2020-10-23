@@ -1,41 +1,42 @@
 .button-control {
-	display: flex;
-	flex-flow: row wrap;
-	align-content: center;
-	justify-content: center;
-	width: 100%;
-	margin: 5px;
-	height: 30px;
-	background: #f2b179;
-	color: #f9f6f2;
-	border-radius: 10px;
-	font-size: 16pt;
-	letter-spacing: 1.5pt;
-	padding: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  margin: 5px;
+  height: 30px;
+  background: #f2b179;
+  color: #f9f6f2;
+  border-radius: 10px;
+  font-size: 16pt;
+  letter-spacing: 1.5pt;
+  padding: 5px;
+  cursor: pointer;
 }
 
 .button-control span {
-	overflow: hidden;
-	width: 0px;
-	transition: width 100ms ease-in-out;
+  overflow: hidden;
+  width: 0px;
+  transition: width 100ms ease-in-out;
 }
 
 .button-control:hover span {
-	width: 15%;
+  width: 15%;
 }
 
 .button-control div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 100%;
 }
 
 @media screen and (max-width: 500px) {
-	.button-control {
-		border-radius: 7px;
-		height: 25px;
-		font-size: 12pt;
-		letter-spacing: 2pt;
-	}
+  .button-control {
+    border-radius: 7px;
+    height: 25px;
+    font-size: 12pt;
+    letter-spacing: 2pt;
+  }
 }

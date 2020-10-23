@@ -3,48 +3,41 @@ import { connect } from "react-redux";
 import { TransitionMotion, spring } from "react-motion";
 import "./GameOverCard.css";
 
-const GameOverCard = props => {
-	const contentArr = props.isGameOver ? [{}] : [],
-		willLeave = () => {
-			return { opacity: spring(0) };
-		},
-		willEnter = () => {
-			return {
-				opacity: 0
-			};
-		},
-		getStyles = () =>
-			contentArr.map(item => {
-				return {
-					key: "main",
-					style: { opacity: spring(1, { stiffness: 55 }) }
-				};
-			}),
-		getChildren = styles => (
-			<React.Fragment>
-				{styles.map(config => {
-					return (
-						<div
-							key={config.key}
-							className="game-over-card"
-							style={{ ...config.style }}>
-							<h1>Game Over</h1>
-						</div>
-					);
-				})}
-			</React.Fragment>
-		);
+const GameOverCard = (props) => {
+  const willLeave = () => ({ opacity: spring(0) });
+  const willEnter = () => ({ opacity: 0 });
+  const styles = props.isGameOver
+    ? [
+        {
+          key: "main",
+          style: { opacity: spring(1, { stiffness: 55 }) },
+        },
+      ]
+    : [];
 
-	return (
-		<TransitionMotion
-			willLeave={willLeave}
-			willEnter={willEnter}
-			styles={getStyles()}>
-			{getChildren}
-		</TransitionMotion>
-	);
+  return (
+    <TransitionMotion
+      willLeave={willLeave}
+      willEnter={willEnter}
+      styles={styles}
+    >
+      {(styles) => (
+        <>
+          {styles.map((conf) => (
+            <div
+              key={conf.key}
+              className="game-over-card"
+              style={{ ...conf.style }}
+            >
+              <h1>Game Over</h1>
+            </div>
+          ))}
+        </>
+      )}
+    </TransitionMotion>
+  );
 };
-const mapStateToProps = ({ isGameOver }) => {
-	return { isGameOver };
-};
+
+const mapStateToProps = ({ isGameOver }) => ({ isGameOver });
+
 export default connect(mapStateToProps)(GameOverCard);

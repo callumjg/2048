@@ -4,13 +4,11 @@ import TutorialButton from "./TutorialButton";
 
 import "./GameControls.css";
 
-const GameControls = props => {
-	return (
-		<div className="game-controls">
-			<NewGameButton />
-			<TutorialButton />
-		</div>
-	);
-};
+const GameControls = () => (
+  <div className="game-controls">
+    <NewGameButton />
+    <TutorialButton />
+  </div>
+);
 
 export default GameControls;
