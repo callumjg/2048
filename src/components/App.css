@@ -1,14 +1,15 @@
-html body {
+html, body  {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   color: #776e65;
   background: #f9f4ee;
   font-family: "Passion One", cursive;
   touch-action: none;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
 }
 
 * {
@@ -19,7 +20,6 @@ html body {
   display: flex;
   position: relative;
   height: 100%;
-  margin-bottom: 40%;
 }
 
 .app {
